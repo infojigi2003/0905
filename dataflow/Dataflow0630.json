@@ -1,0 +1,35 @@
+{
+	"name": "Dataflow0630",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "DataSetIn0630",
+						"type": "DatasetReference"
+					},
+					"name": "DataFlowSorce0630"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "DataSetOut0630",
+						"type": "DatasetReference"
+					},
+					"name": "DataFlowSink0630"
+				}
+			],
+			"transformations": [
+				{
+					"name": "DerivedColumn1"
+				},
+				{
+					"name": "Flatten1"
+				}
+			],
+			"script": "source(output(\n\t\tUserId as string,\n\t\tFavoriteColor as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false,\n\twildcardPaths:['horizontal/*.txt2']) ~> DataFlowSorce0630\nDataFlowSorce0630 derive(FavoriteColor_split = split({FavoriteColor}, '，')) ~> DerivedColumn1\nDerivedColumn1 foldDown(unroll(FavoriteColor_split),\n\tmapColumn(\n\t\tUserId,\n\t\tFavoriteColor,\n\t\tFavoriteColor_split\n\t),\n\tskipDuplicateMapInputs: false,\n\tskipDuplicateMapOutputs: false) ~> Flatten1\nFlatten1 sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tpartitionFileNames:['DataFlowOut0630.txt'],\n\tumask: 0022,\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true,\n\tpartitionBy('hash', 1)) ~> DataFlowSink0630"
+		}
+	}
+}

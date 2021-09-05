@@ -1,0 +1,32 @@
+{
+	"name": "Dataflow3_Schema",
+	"properties": {
+		"type": "MappingDataFlow",
+		"typeProperties": {
+			"sources": [
+				{
+					"dataset": {
+						"referenceName": "DelimitedText3",
+						"type": "DatasetReference"
+					},
+					"name": "source1"
+				}
+			],
+			"sinks": [
+				{
+					"dataset": {
+						"referenceName": "DelimitedText3out",
+						"type": "DatasetReference"
+					},
+					"name": "sink1"
+				}
+			],
+			"transformations": [
+				{
+					"name": "Select1"
+				}
+			],
+			"script": "source(output(\n\t\tSID as string,\n\t\tRS as string,\n\t\tYMD as string,\n\t\tHMS as string,\n\t\tTOD as string,\n\t\tXDMSKB as string,\n\t\tJBN as string,\n\t\tXDMID as string,\n\t\tACTID as string,\n\t\tGUNTBN as string,\n\t\tACTTBN as string,\n\t\tACTPROC as string,\n\t\tKTM as string,\n\t\tUID as string,\n\t\tUAP as string,\n\t\tTRN as string,\n\t\tSTP as string,\n\t\tSTP2 as string,\n\t\tKNSSKB as string,\n\t\tJIKKAH as string,\n\t\tJIKKNG as string,\n\t\tTKNUSR as string,\n\t\tJIKSHA as string,\n\t\tEVTTYP as string,\n\t\tENTSTP as string,\n\t\tSCMNAM as string,\n\t\tOBJNAM as string,\n\t\tOBJTYP as string,\n\t\tHNKKNG as string,\n\t\tHNKSKB as string,\n\t\tHNTKNG as string,\n\t\tROLNAM as string,\n\t\tGRPNAM as string,\n\t\tSSNNUM as string,\n\t\tSQLCOD as string,\n\t\tHIRUAP as string,\n\t\tSRVNAM as string,\n\t\tOPECOD as string,\n\t\tOBJONR as string,\n\t\tOBJMID as string,\n\t\tOBJTIM as string,\n\t\tSQLBUN as string,\n\t\tSQLDAT as string,\n\t\tSQLKEN as string,\n\t\tKNSBAN as string,\n\t\tFILLER as string\n\t),\n\tallowSchemaDrift: true,\n\tvalidateSchema: false,\n\tignoreNoFilesFound: false) ~> source1\nsource1 select(mapColumn(\n\t\tSID,\n\t\tRS,\n\t\tYMD,\n\t\tHMS,\n\t\tTOD,\n\t\tXDMSKB,\n\t\tJBN,\n\t\tXDMID,\n\t\tACTID,\n\t\tGUNTBN,\n\t\tACTTBN,\n\t\tACTPROC,\n\t\tKTM,\n\t\tUID,\n\t\tUAP,\n\t\tTRN,\n\t\tSTP,\n\t\tSTP2,\n\t\tKNSSKB,\n\t\tJIKKAH,\n\t\tJIKKNG,\n\t\tTKNUSR,\n\t\tJIKSHA,\n\t\tEVTTYP,\n\t\tENTSTP,\n\t\tSCMNAM,\n\t\tOBJNAM,\n\t\tOBJTYP,\n\t\tHNKKNG,\n\t\tHNKSKB,\n\t\tHNTKNG,\n\t\tROLNAM,\n\t\tGRPNAM,\n\t\tSSNNUM,\n\t\tSQLCOD,\n\t\tHIRUAP,\n\t\tSRVNAM,\n\t\tOPECOD,\n\t\tOBJONR,\n\t\tOBJMID,\n\t\tOBJTIM,\n\t\tSQLBUN,\n\t\tSQLDAT,\n\t\tSQLKEN,\n\t\tKNSBAN,\n\t\tFILLER\n\t),\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> Select1\nSelect1 sink(allowSchemaDrift: true,\n\tvalidateSchema: false,\n\tinput(\n\t\t{X@} as string,\n\t\t{XWS } as string,\n\t\t{2021-03-29} as string,\n\t\t{04:03:23.27} as string,\n\t\tD97B53F402CA3C40 as string,\n\t\tA as string,\n\t\t{ONLBS1  6} as string,\n\t\tProp_7 as string,\n\t\tProp_8 as string,\n\t\t{09} as string,\n\t\t{010} as string,\n\t\t{011} as string,\n\t\tProp_12 as string,\n\t\tProp_13 as string,\n\t\tProp_14 as string,\n\t\tProp_15 as string,\n\t\tProp_16 as string,\n\t\t{ONLBS1  17} as string\n\t),\n\tumask: 0022,\n\tskipDuplicateMapInputs: true,\n\tskipDuplicateMapOutputs: true) ~> sink1"
+		}
+	}
+}
