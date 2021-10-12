@@ -21,6 +21,130 @@
 		},
 		"metadata": {
 			"saveOutput": true,
+			"synapse_widget": {
+				"version": "0.1",
+				"state": {
+					"4cc2d990-1289-4c13-b52b-f642943cb3dd": {
+						"type": "Synapse.DataFrame",
+						"sync_state": {
+							"table": {
+								"rows": [
+									{
+										"0": "CA",
+										"1": "22",
+										"2": "45000"
+									},
+									{
+										"0": "WA",
+										"1": "35",
+										"2": "65000"
+									},
+									{
+										"0": "WA",
+										"1": "50",
+										"2": "85000"
+									}
+								],
+								"schema": [
+									{
+										"key": "0",
+										"name": "state",
+										"type": "string"
+									},
+									{
+										"key": "1",
+										"name": "age",
+										"type": "bigint"
+									},
+									{
+										"key": "2",
+										"name": "salary",
+										"type": "bigint"
+									}
+								]
+							},
+							"isSummary": false,
+							"language": "scala"
+						},
+						"persist_state": {
+							"view": {
+								"type": "details",
+								"chartOptions": {
+									"chartType": "bar",
+									"aggregationType": "sum",
+									"categoryFieldKeys": [
+										"0"
+									],
+									"seriesFieldKeys": [
+										"1"
+									],
+									"isStacked": false
+								}
+							}
+						}
+					},
+					"37a1e956-608c-40fc-95a5-0961f7ed03a1": {
+						"type": "Synapse.DataFrame",
+						"sync_state": {
+							"table": {
+								"rows": [
+									{
+										"0": "CA",
+										"1": "22",
+										"2": "45000"
+									},
+									{
+										"0": "WA",
+										"1": "35",
+										"2": "65000"
+									},
+									{
+										"0": "WA",
+										"1": "50",
+										"2": "85000"
+									}
+								],
+								"schema": [
+									{
+										"key": "0",
+										"name": "state",
+										"type": "string"
+									},
+									{
+										"key": "1",
+										"name": "age",
+										"type": "bigint"
+									},
+									{
+										"key": "2",
+										"name": "salary",
+										"type": "bigint"
+									}
+								]
+							},
+							"isSummary": false,
+							"language": "scala"
+						},
+						"persist_state": {
+							"view": {
+								"type": "details",
+								"chartOptions": {
+									"chartType": "bar",
+									"aggregationType": "sum",
+									"categoryFieldKeys": [
+										"0"
+									],
+									"seriesFieldKeys": [
+										"1"
+									],
+									"isStacked": false
+								}
+							}
+						}
+					}
+				}
+			},
+			"enableDebugMode": false,
 			"kernelspec": {
 				"name": "synapse_pyspark",
 				"display_name": "Synapse PySpark"
@@ -69,7 +193,8 @@
 							"filter": null
 						},
 						"isSql": false
-					}
+					},
+					"collapsed": false
 				},
 				"source": [
 					"new_rows = [('CA',22, 45000),(\"WA\",35,65000) ,(\"WA\",50,85000)]\n",
@@ -79,7 +204,7 @@
 					"#print(demo_df)"
 				],
 				"attachments": null,
-				"execution_count": 7
+				"execution_count": 1
 			},
 			{
 				"cell_type": "code",
@@ -102,7 +227,7 @@
 					""
 				],
 				"attachments": null,
-				"execution_count": 8
+				"execution_count": 2
 			},
 			{
 				"cell_type": "code",
@@ -126,7 +251,7 @@
 					"SHOW TABLES"
 				],
 				"attachments": null,
-				"execution_count": 9
+				"execution_count": 3
 			},
 			{
 				"cell_type": "code",
@@ -150,7 +275,7 @@
 					"SELECT * FROM demo_df"
 				],
 				"attachments": null,
-				"execution_count": 11
+				"execution_count": 4
 			},
 			{
 				"cell_type": "code",
@@ -170,7 +295,7 @@
 					"display(spark.sql('SELECT * FROM demo_df'))"
 				],
 				"attachments": null,
-				"execution_count": 6
+				"execution_count": 5
 			}
 		]
 	}
