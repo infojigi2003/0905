@@ -1,0 +1,32 @@
+{
+	"name": "DataSetIn0630",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "st0630",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "horizontal-vertical-container"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "UserId",
+				"type": "String"
+			},
+			{
+				"name": "FavoriteColor",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.Synapse/workspaces/datasets"
+}

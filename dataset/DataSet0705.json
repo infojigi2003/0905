@@ -1,0 +1,36 @@
+{
+	"name": "DataSet0705",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "st0630",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileSystem": "horizontal-vertical-container"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "10ad1_datashutoku_yyyymmdd",
+				"type": "String"
+			},
+			{
+				"name": "ad2_houjin_code",
+				"type": "String"
+			},
+			{
+				"name": "1hanbaisakimei",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.Synapse/workspaces/datasets"
+}

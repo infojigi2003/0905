@@ -1,0 +1,17 @@
+{
+	"name": "3-7",
+	"properties": {
+		"content": {
+			"query": "SELECT\n\t得意先名, SUM(r2.単価 * r2.数量) AS 受注金額\nFROM\n\tOPENROWSET(\n\t\tBULK 'https://ksynapse01dls.dfs.core.windows.net/data/受注.csv',\n\t\tFORMAT = 'CSV',\n\t\tHEADER_ROW = TRUE,\n\t\tPARSER_VERSION='2.0'\n    \t) AS [r1]\nINNER JOIN\n\tOPENROWSET(\n\t\tBULK 'https://ksynapse01dls.dfs.core.windows.net/data/受注明細.csv',\n\t\tFORMAT = 'CSV',\n\t\tHEADER_ROW = TRUE,\n\t\tPARSER_VERSION='2.0'\n\t) AS [r2]\nON r1.受注コード = r2.受注コード\nINNER JOIN\n\tOPENROWSET(\n\t\t BULK 'https://ksynapse01dls.dfs.core.windows.net/data/得意先.csv',\n\t\t FORMAT = 'CSV',\n\t\tHEADER_ROW = TRUE,\n\t\tPARSER_VERSION='2.0'\n\t) AS [r3]\nON r1.得意先コード = r3.得意先コード\nGROUP BY r3.得意先名\nORDER BY 受注金額 DESC;",
+			"metadata": {
+				"language": "sql"
+			},
+			"currentConnection": {
+				"databaseName": "SampleDB01",
+				"poolName": "Built-in"
+			},
+			"resultLimit": 5000
+		},
+		"type": "SqlQuery"
+	}
+}

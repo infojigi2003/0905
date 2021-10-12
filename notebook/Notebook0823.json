@@ -1,0 +1,167 @@
+{
+	"name": "Notebook0823",
+	"properties": {
+		"nbformat": 4,
+		"nbformat_minor": 2,
+		"bigDataPool": {
+			"referenceName": "apachespark0621",
+			"type": "BigDataPoolReference"
+		},
+		"sessionProperties": {
+			"driverMemory": "28g",
+			"driverCores": 4,
+			"executorMemory": "28g",
+			"executorCores": 4,
+			"numExecutors": 2,
+			"conf": {
+				"spark.dynamicAllocation.enabled": "false",
+				"spark.dynamicAllocation.minExecutors": "2",
+				"spark.dynamicAllocation.maxExecutors": "2"
+			}
+		},
+		"metadata": {
+			"saveOutput": true,
+			"language_info": {
+				"name": "python"
+			},
+			"a365ComputeOptions": {
+				"id": "/subscriptions/21ddf9b4-82bd-482c-9159-54a0440d78c6/resourceGroups/ksynapse01-rg/providers/Microsoft.Synapse/workspaces/ksynapse01-ws/bigDataPools/apachespark0621",
+				"name": "apachespark0621",
+				"type": "Spark",
+				"endpoint": "https://ksynapse01-ws.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/apachespark0621",
+				"auth": {
+					"type": "AAD",
+					"authResource": "https://dev.azuresynapse.net"
+				},
+				"sparkVersion": "2.4",
+				"nodeCount": 10,
+				"cores": 4,
+				"memory": 28,
+				"extraHeader": null
+			}
+		},
+		"cells": [
+			{
+				"cell_type": "code",
+				"metadata": {
+					"diagram": {
+						"activateDiagramType": 1,
+						"chartConfig": {
+							"category": "bar",
+							"keys": [
+								"id"
+							],
+							"values": [
+								"height"
+							],
+							"yLabel": "height",
+							"xLabel": "id",
+							"aggregation": "SUM",
+							"aggByBackend": false
+						},
+						"aggData": "{\"height\":{\"2\":190,\"3\":190,\"4\":290}}",
+						"isSummary": false,
+						"previewData": {
+							"filter": null
+						},
+						"isSql": false
+					}
+				},
+				"source": [
+					"from pyspark.sql import Row\n",
+					"employeesSeq = [\n",
+					"    Row(id=2, name='shimamura', mail='shimaura@test.com',weight=60.5, height=190),\n",
+					"    Row(id=3, name='nagata', mail='nagata@test.com',weight=60.5, height=190),\n",
+					"    Row(id=4, name='huafuhu2', mail='huafu.hu2@test.com',weight=60.5, height=290), \n",
+					"]\n",
+					"df = spark.createDataFrame(employeesSeq)\n",
+					"\n",
+					"def display_def(df):\n",
+					"    return display(df)\n",
+					"\n",
+					"def cal1(a,b):\n",
+					"    return a+b\n",
+					"\n",
+					"def cal2():\n",
+					"    return print(\"called cal2\")\n",
+					""
+				],
+				"execution_count": 9
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"cal1(3,6)"
+				],
+				"execution_count": 10
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"cal2()"
+				],
+				"execution_count": 11
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"display_def(df)"
+				],
+				"execution_count": 12
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"cal1(1,2)"
+				],
+				"execution_count": 13
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"cal2()"
+				],
+				"execution_count": 14
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"diagram": {
+						"activateDiagramType": 1,
+						"chartConfig": {
+							"category": "bar",
+							"keys": [
+								"id"
+							],
+							"values": [
+								"height"
+							],
+							"yLabel": "height",
+							"xLabel": "id",
+							"aggregation": "SUM",
+							"aggByBackend": false
+						},
+						"aggData": "{\"height\":{\"2\":190,\"3\":190,\"4\":290}}",
+						"isSummary": false,
+						"previewData": {
+							"filter": null
+						},
+						"isSql": false
+					}
+				},
+				"source": [
+					"def display_def(df):\n",
+					"    return display(df)"
+				],
+				"execution_count": 15
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"display_def(df)"
+				],
+				"execution_count": 16
+			}
+		]
+	}
+}

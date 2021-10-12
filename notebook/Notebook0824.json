@@ -1,0 +1,118 @@
+{
+	"name": "Notebook0824",
+	"properties": {
+		"nbformat": 4,
+		"nbformat_minor": 2,
+		"bigDataPool": {
+			"referenceName": "apachespark0621",
+			"type": "BigDataPoolReference"
+		},
+		"sessionProperties": {
+			"driverMemory": "28g",
+			"driverCores": 4,
+			"executorMemory": "28g",
+			"executorCores": 4,
+			"numExecutors": 2,
+			"conf": {
+				"spark.dynamicAllocation.enabled": "false",
+				"spark.dynamicAllocation.minExecutors": "2",
+				"spark.dynamicAllocation.maxExecutors": "2"
+			}
+		},
+		"metadata": {
+			"saveOutput": true,
+			"language_info": {
+				"name": "python"
+			},
+			"a365ComputeOptions": {
+				"id": "/subscriptions/21ddf9b4-82bd-482c-9159-54a0440d78c6/resourceGroups/ksynapse01-rg/providers/Microsoft.Synapse/workspaces/ksynapse01-ws/bigDataPools/apachespark0621",
+				"name": "apachespark0621",
+				"type": "Spark",
+				"endpoint": "https://ksynapse01-ws.dev.azuresynapse.net/livyApi/versions/2019-11-01-preview/sparkPools/apachespark0621",
+				"auth": {
+					"type": "AAD",
+					"authResource": "https://dev.azuresynapse.net"
+				},
+				"sparkVersion": "2.4",
+				"nodeCount": 10,
+				"cores": 4,
+				"memory": 28,
+				"extraHeader": null
+			}
+		},
+		"cells": [
+			{
+				"cell_type": "code",
+				"source": [
+					"import pandas as pd\n",
+					"df = pd.DataFrame([[2, 3, 4, 5], [1, 2, 3, 4]], \n",
+					"index=['sample1', 'sample2'], \n",
+					"columns=['propertyA', 'propertyB','propertyC','propertyD'])\n",
+					"df"
+				],
+				"execution_count": 25
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"print(df)"
+				],
+				"execution_count": 26
+			},
+			{
+				"cell_type": "code",
+				"metadata": {
+					"diagram": {
+						"activateDiagramType": 1,
+						"chartConfig": {
+							"category": "bar",
+							"keys": [
+								"propertyB"
+							],
+							"values": [
+								"propertyA"
+							],
+							"yLabel": "propertyA",
+							"xLabel": "propertyB",
+							"aggregation": "SUM",
+							"aggByBackend": false
+						},
+						"aggData": "{\"propertyA\":{\"2\":1,\"3\":2}}",
+						"isSummary": false,
+						"previewData": {
+							"filter": null
+						},
+						"isSql": false
+					}
+				},
+				"source": [
+					"display(df)"
+				],
+				"execution_count": 27
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"info_list = ['chemoinfomatics', 'materialsinfomatics', \n",
+					"'processinfomatics', 'catalystinfomatics']"
+				],
+				"execution_count": 28
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"print(info_list)"
+				],
+				"execution_count": 29
+			},
+			{
+				"cell_type": "code",
+				"source": [
+					"from pprint import pprint\n",
+					"pprint(info_list)"
+				],
+				"execution_count": 30
+			}
+		]
+	}
+}

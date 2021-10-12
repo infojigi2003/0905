@@ -1,0 +1,210 @@
+{
+	"name": "DelimitedText1",
+	"properties": {
+		"linkedServiceName": {
+			"referenceName": "dataflowtestk01",
+			"type": "LinkedServiceReference"
+		},
+		"annotations": [],
+		"type": "DelimitedText",
+		"typeProperties": {
+			"location": {
+				"type": "AzureBlobFSLocation",
+				"fileName": "test.csv",
+				"folderPath": "flow",
+				"fileSystem": "flowtest"
+			},
+			"columnDelimiter": ",",
+			"escapeChar": "\\",
+			"firstRowAsHeader": true,
+			"quoteChar": "\""
+		},
+		"schema": [
+			{
+				"name": "SID",
+				"type": "String"
+			},
+			{
+				"name": "RS",
+				"type": "String"
+			},
+			{
+				"name": "YMD",
+				"type": "String"
+			},
+			{
+				"name": "HMS",
+				"type": "String"
+			},
+			{
+				"name": "TOD",
+				"type": "String"
+			},
+			{
+				"name": "XDMSKB",
+				"type": "String"
+			},
+			{
+				"name": "JBN",
+				"type": "String"
+			},
+			{
+				"name": "XDMID",
+				"type": "String"
+			},
+			{
+				"name": "ACTID",
+				"type": "String"
+			},
+			{
+				"name": "GUNTBN",
+				"type": "String"
+			},
+			{
+				"name": "ACTTBN",
+				"type": "String"
+			},
+			{
+				"name": "ACTPROC",
+				"type": "String"
+			},
+			{
+				"name": "KTM",
+				"type": "String"
+			},
+			{
+				"name": "UID",
+				"type": "String"
+			},
+			{
+				"name": "UAP",
+				"type": "String"
+			},
+			{
+				"name": "TRN",
+				"type": "String"
+			},
+			{
+				"name": "STP",
+				"type": "String"
+			},
+			{
+				"name": "STP2",
+				"type": "String"
+			},
+			{
+				"name": "KNSSKB",
+				"type": "String"
+			},
+			{
+				"name": "JIKKAH",
+				"type": "String"
+			},
+			{
+				"name": "JIKKNG",
+				"type": "String"
+			},
+			{
+				"name": "TKNUSR",
+				"type": "String"
+			},
+			{
+				"name": "JIKSHA",
+				"type": "String"
+			},
+			{
+				"name": "EVTTYP",
+				"type": "String"
+			},
+			{
+				"name": "ENTSTP",
+				"type": "String"
+			},
+			{
+				"name": "SCMNAM",
+				"type": "String"
+			},
+			{
+				"name": "OBJNAM",
+				"type": "String"
+			},
+			{
+				"name": "OBJTYP",
+				"type": "String"
+			},
+			{
+				"name": "HNKKNG",
+				"type": "String"
+			},
+			{
+				"name": "HNKSKB",
+				"type": "String"
+			},
+			{
+				"name": "HNTKNG",
+				"type": "String"
+			},
+			{
+				"name": "ROLNAM",
+				"type": "String"
+			},
+			{
+				"name": "GRPNAM",
+				"type": "String"
+			},
+			{
+				"name": "SSNNUM",
+				"type": "String"
+			},
+			{
+				"name": "SQLCOD",
+				"type": "String"
+			},
+			{
+				"name": "HIRUAP",
+				"type": "String"
+			},
+			{
+				"name": "SRVNAM",
+				"type": "String"
+			},
+			{
+				"name": "OPECOD",
+				"type": "String"
+			},
+			{
+				"name": "OBJONR",
+				"type": "String"
+			},
+			{
+				"name": "OBJMID",
+				"type": "String"
+			},
+			{
+				"name": "OBJTIM",
+				"type": "String"
+			},
+			{
+				"name": "SQLBUN",
+				"type": "String"
+			},
+			{
+				"name": "SQLDAT",
+				"type": "String"
+			},
+			{
+				"name": "SQLKEN",
+				"type": "String"
+			},
+			{
+				"name": "KNSBAN",
+				"type": "String"
+			},
+			{
+				"name": "FILLER",
+				"type": "String"
+			}
+		]
+	},
+	"type": "Microsoft.Synapse/workspaces/datasets"
+}

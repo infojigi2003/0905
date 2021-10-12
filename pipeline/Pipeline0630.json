@@ -1,0 +1,34 @@
+{
+	"name": "Pipeline0630",
+	"properties": {
+		"activities": [
+			{
+				"name": "PipeLine0630",
+				"type": "ExecuteDataFlow",
+				"dependsOn": [],
+				"policy": {
+					"timeout": "1.00:00:00",
+					"retry": 0,
+					"retryIntervalInSeconds": 30,
+					"secureOutput": false,
+					"secureInput": false
+				},
+				"userProperties": [],
+				"typeProperties": {
+					"dataflow": {
+						"referenceName": "Dataflow0630",
+						"type": "DataFlowReference"
+					},
+					"compute": {
+						"coreCount": 8,
+						"computeType": "General"
+					},
+					"traceLevel": "Fine"
+				}
+			}
+		],
+		"annotations": [],
+		"lastPublishTime": "2021-07-04T05:38:30Z"
+	},
+	"type": "Microsoft.Synapse/workspaces/pipelines"
+}
